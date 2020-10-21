@@ -201,8 +201,6 @@ function fillThirdSelect() {
     
     thirdParameter.innerHTML = "";
     
-    let options = [];
-
     if(secondParameter.value == "hitman") {
         var options = [" | ", "hitmanAbsolute|Hitman Absolute", "hitmanBloodMoney|Hitman 4: Blood Money", "hitmanContracts|Hitman 3: Contracts"];
     } else if(secondParameter.value == "splinterCell") {
