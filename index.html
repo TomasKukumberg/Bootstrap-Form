@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formular</title>
+  </head>
+  <body>
+    <form action="/" class="needs-validation"  name="form" id="form" novalidate>
+      <div class="form-row form-group">
+        <div class="col-md-6">
+          <label for="date">Dátum narodenia:</label>
+          <input type="date" onchange="validateBirth()" class="form-control well" placeholder="Zadajte dátum narodenia" id="birthday">
+          <small class="invalid-feedback error">Dátum narodenia a vek sa nezhodujú</small>
+        </div>
+        <div class="col-md-6">
+          <label for="number">Vek:</label>
+          <input type="number" onchange="validateAge()" class="form-control" placeholder="Zadajte vek: " id="age">
+          <small class="invalid-feedback error">Dátum narodenia a vek sa nezhodujú</small>
+        </div>
+      </div>  
+      
+      <p>Vyberte si oblubenych psov:</p>
+      <div class="row checkbox" id="dogs">
+        <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="optradio" onchange="validateCheckboxes('dogs')"> Bulterier</label>
+        <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="optradio"onchange="validateCheckboxes('dogs')"> Retriver</label>
+        <label class="radio-inline col-md-2"><input id="other-checkbox" class="dogs" type="checkbox" name="optradio" onchange="changeTextField(); validateCheckboxes('dogs')"> Ina rasa</label>
+        <label class="radio-inline"><input class="form-control dogs" type="hidden" name="other-text" placeholder="Zadajte inu rasu" id="other-text" onchange="validateCheckboxes('dogs')"></label>
+        <small class="invalid-feedback error">Vyberte si aspon jedneho psa</small>
+      </div>
+
+      <label for="game-genres">Vyberte si oblubeny zaner hier: </label>
+      <select class="selectBox" name="game-genres" id="game-genres" onchange="fillSecondSelect(); validateSelectboxes()">
+        <option value=""></option>
+        <option value="fps">FPS</option>
+        <option value="rpg">RPG</option>
+        <option value="stealth">Stealth</option>
+      </select>
+      <br><br>
+      <label for="game-series">Vyberte si seriu: </label>
+      <select class="selectBox" name="game-series" id="game-series" onchange="fillThirdSelect(); validateSelectboxes()"></select>
+      <br><br>
+      <label for="game-specific">Vyberte si konkretny diel: </label>
+      <select class="selectBox" name="game-specific" id="game-specific" onchange="validateSelectboxes()"></select>
+
+      <br><br>
+      <div class="form-group form-row">
+        <div class="col-md-3">
+          <p>Vyberte si pohlavie:</p>
+        </div>
+        <div class="col-md-1">
+          <input type="radio" id="male" name="gender" value="male" checked onchange="showMaleQuestion()">
+          <label class="radio-inline" for="male">Muž</label>
+        </div>  
+        <div class="col-md-1">
+          <input type="radio" id="female" name="gender" value="female" onchange="showFemaleQuestion()">
+          <label class="radio-inline" for="female">Žena</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <p id="specific-question">Vase oblubene auto?</p>
+      <label class="radio-inline"><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()"></label>
+      </div>
+      
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Zadajte email:" onchange="validateEmail()">
+      <input type="hidden" id="myName" name="myName" value="Tomáš Kukumberg">
+      <br>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Opiste vas najlepsi moment v zivote:</span>
+        </div>
+        <textarea class="form-control" id="text-area-field" onchange="validateTextArea()" aria-label="With textarea"></textarea>
+      </div>
+      <br><button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
+
+<!--
+  TODO: ADD ERROR MESSAGES AND BOOTSTRAP STYLES FOR ERRORS
+-->

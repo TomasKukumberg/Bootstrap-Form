@@ -1,0 +1,17 @@
+form {
+    width: 800px;
+    margin: auto;
+}
+.error {
+    display:none;
+}
+#text-other-race {
+    visibility: hidden;
+}
+.form-bg {
+    border: 1px solid #ced4da
+}
+p {
+    display:inline;
+    margin-right: 20px;
+}
