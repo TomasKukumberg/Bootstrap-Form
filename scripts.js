@@ -48,6 +48,26 @@ function validateSelectboxes() {
     let gameGenres = document.getElementById('game-genres');
     let gameSeries = document.getElementById('game-series');
     let gameSpecific = document.getElementById('game-specific');
+    // validation
+    if(gameGenres.value == "") {
+        gameGenres.classList.add('is-invalid');
+    } else {
+        gameGenres.classList.remove('is-invalid');
+        gameGenres.classList.add('is-valid');
+    }
+    if(gameSeries.value == " ") {
+        gameSeries.classList.add('is-invalid');
+    } else {
+        gameSeries.classList.remove('is-invalid');
+        gameSeries.classList.add('is-valid');
+    }
+    if(gameSpecific.value == " ") {
+        gameSpecific.classList.add('is-invalid');
+    } else {
+        gameSpecific.classList.remove('is-invalid');
+        gameSpecific.classList.add('is-valid');
+    }
+    //
     if( gameGenres.value === " " || gameSeries.value === " " || gameSpecific.value === " " 
      || gameGenres.value === null || gameSeries.value === null || gameSpecific.value === null) {
         return false;
@@ -161,6 +181,8 @@ function fillSecondSelect() {
         var options = [" | ", "gothic|Gothic", "fallout|Fallout", "elderscrolls|Elder Scrolls"];
     } else if(firstParameter.value == "stealth") {
         var options = [" | ", "hitman|Hitman", "splinterCell|Splinter Cell", "dishonored|Dishonored"];
+    } else {
+        var options = [" | "];
     }
     
     for(let i in options) {
@@ -178,6 +200,8 @@ function fillThirdSelect() {
     let thirdParameter = document.getElementById('game-specific');
     
     thirdParameter.innerHTML = "";
+    
+    let options = [];
 
     if(secondParameter.value == "hitman") {
         var options = [" | ", "hitmanAbsolute|Hitman Absolute", "hitmanBloodMoney|Hitman 4: Blood Money", "hitmanContracts|Hitman 3: Contracts"];
@@ -197,12 +221,23 @@ function fillThirdSelect() {
         var options = [" | ", "battlefield2142|Battlefield 2142", "battlefield3|Battlefield 3", "battlefield4|Battlefield 4"];
     } else if(secondParameter.value == "brothersInArms") {
         var options = [" | ", "biaHourOfHeroes|Brothers in Arms: Hour of Heroes", "bia2GlobalFront|Brothers in Arms 2: Global Front", "bia3SonsOfWar|Brothers in Arms 3: Sons of War"];
-    } 
+    } else {
+        var options = [" | "];
+    }
+
     for(let i in options) {
         let pair = options[i].split("|");
         let option = document.createElement("option");
         option.value = pair[0];
         option.innerHTML = pair[1];
         thirdParameter.options.add(option);
+    }
+
+    function testingshit() {
+        let firstParameter = document.getElementById('game-genres');
+        let secondParameter = document.getElementById('game-series');
+        let thirdParameter = document.getElementById('game-specific');
+
+
     }
 }

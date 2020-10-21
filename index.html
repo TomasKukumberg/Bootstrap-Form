@@ -30,20 +30,28 @@
         <label class="radio-inline"><input class="form-control dogs" type="hidden" name="other-text" placeholder="Zadajte inu rasu" id="other-text" onchange="validateCheckboxes('dogs')"></label>
         <small class="invalid-feedback error">Vyberte si aspon jedneho psa</small>
       </div>
-
-      <label for="game-genres">Vyberte si oblubeny zaner hier: </label>
-      <select class="selectBox" name="game-genres" id="game-genres" onchange="fillSecondSelect(); validateSelectboxes()">
-        <option value=""></option>
-        <option value="fps">FPS</option>
-        <option value="rpg">RPG</option>
-        <option value="stealth">Stealth</option>
-      </select>
-      <br><br>
-      <label for="game-series">Vyberte si seriu: </label>
-      <select class="selectBox" name="game-series" id="game-series" onchange="fillThirdSelect(); validateSelectboxes()"></select>
-      <br><br>
-      <label for="game-specific">Vyberte si konkretny diel: </label>
-      <select class="selectBox" name="game-specific" id="game-specific" onchange="validateSelectboxes()"></select>
+      <div class="form-group">
+        <label for="game-genres">Vyberte si oblubeny zaner hier: </label>
+        <select class="selectBox form-control" name="game-genres" id="game-genres" onchange="fillSecondSelect(); validateSelectboxes()">
+          <option value=""></option>
+          <option value="fps">FPS</option>
+          <option value="rpg">RPG</option>
+          <option value="stealth">Stealth</option>
+        </select>
+        <small class="invalid-feedback">Vyberte si zaner hier</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="game-series">Vyberte si seriu: </label>
+        <select class="selectBox form-control" name="game-series" id="game-series" onchange="fillThirdSelect(); validateSelectboxes()"></select>
+        <small class="invalid-feedback">Vyberte si seriu hier</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="game-specific">Vyberte si konkretny diel: </label>
+        <select class="selectBox form-control" name="game-specific" id="game-specific" onchange="validateSelectboxes()"></select>
+        <small class="invalid-feedback">Vyberte si diel</small>
+      </div>
 
       <br><br>
       <div class="form-group form-row">
@@ -61,7 +69,7 @@
       </div>
       <div class="form-row form-group">
         <div class="col-md-5">
-          <label for="custom-q-text" class="radio-inline">Vase oblubene auto?</label><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()">
+          <label for="custom-q-text" id="specific-question" class="radio-inline">Vase oblubene auto?</label><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()">
         </div>
         <div class="col-md-5">
           <label for="email">Email:</label>
