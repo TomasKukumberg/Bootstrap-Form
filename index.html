@@ -13,7 +13,7 @@
       <div class="form-row form-group">
         <div class="col-md-6">
           <label for="date">Dátum narodenia:</label>
-          <input type="date" onchange="validateBirth()" class="form-control well" placeholder="Zadajte dátum narodenia" id="birthday">
+          <input type="date" onchange="validateBirth()" class="form-control" placeholder="Zadajte dátum narodenia" id="birthday">
           <small class="invalid-feedback error">Dátum narodenia a vek sa nezhodujú</small>
         </div>
         <div class="col-md-6">
@@ -22,8 +22,7 @@
           <small class="invalid-feedback error">Dátum narodenia a vek sa nezhodujú</small>
         </div>
       </div>  
-      
-      <p>Vyberte si oblubenych psov:</p>
+      <label for="dogs">Vyberte si oblubenych psov:</label>
       <div class="row checkbox" id="dogs">
         <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="optradio" onchange="validateCheckboxes('dogs')"> Bulterier</label>
         <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="optradio"onchange="validateCheckboxes('dogs')"> Retriver</label>
@@ -61,8 +60,7 @@
         </div>
       </div>
       <div class="form-row">
-        <p id="specific-question">Vase oblubene auto?</p>
-      <label class="radio-inline"><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()"></label>
+        <label for="custom-q-text" class="radio-inline">Vase oblubene auto?<input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()"></label>
       </div>
       
       <br>
