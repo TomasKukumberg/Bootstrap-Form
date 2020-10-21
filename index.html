@@ -59,13 +59,17 @@
           <label class="radio-inline" for="female">Žena</label>
         </div>
       </div>
-      <div class="form-row">
-        <label for="custom-q-text" class="radio-inline">Vase oblubene auto?<input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()"></label>
+      <div class="form-row form-group">
+        <div class="col-md-5">
+          <label for="custom-q-text" class="radio-inline">Vase oblubene auto?</label><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onchange="validateCustomMessage()">
+        </div>
+        <div class="col-md-5">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Zadajte email:" onchange="validateEmail()">
+        </div>
       </div>
       
       <br>
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Zadajte email:" onchange="validateEmail()">
       <input type="hidden" id="myName" name="myName" value="Tomáš Kukumberg">
       <br>
       <div class="input-group">

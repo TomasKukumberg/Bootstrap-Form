@@ -1,6 +1,7 @@
 form {
     width: 800px;
     margin: auto;
+    margin-top: 40px;
 }
 .error {
     display:none;
