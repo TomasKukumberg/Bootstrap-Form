@@ -3,9 +3,6 @@ form {
     margin: auto;
     margin-top: 40px;
 }
-.error {
-    display:none;
-}
 #text-other-race {
     visibility: hidden;
 }

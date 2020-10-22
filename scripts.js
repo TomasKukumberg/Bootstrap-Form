@@ -11,8 +11,11 @@ form.addEventListener('submit', (e) => {
 function validateCustomMessage() {
     let custom = document.getElementById('custom-q-text');
     if(custom.value == '') {
+        custom.classList.add('is-invalid');
         return false;
     } else {
+        custom.classList.remove('is-invalid');
+        custom.classList.add('is-valid');
         return true;
     }
 }
@@ -20,28 +23,39 @@ function validateCustomMessage() {
 function validateTextArea() {
     let t = document.getElementById('text-area-field');
     if(t.value == '') {
+        t.classList.add('is-invalid');
         return false;
     } else {
+        t.classList.remove('is-invalid');
+        t.classList.add('is-valid');
         return true;
     }
 }
 
 function showMaleQuestion() {
     let q = document.getElementById('specific-question');
-    q.innerHTML = "Vasa oblubena herecka?";
+    q.innerHTML = "Vaša obľúbená herečka?";
 }
 function showFemaleQuestion() {
     let q = document.getElementById('specific-question');
-    q.innerHTML = "Vas oblubeny herec?";
+    q.innerHTML = "Váš obľúbený herec?";
 }
 
 function validateEmail() {
     let email = document.getElementById('email');
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(email.value == "") {
+        email.classList.add('is-invalid');
         return false;
     }
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email.value).toLowerCase());
+    if(re.test(String(email.value).toLowerCase()) == false) {
+        email.classList.add('is-invalid');
+        return false;
+    } else {
+        email.classList.remove('is-invalid');
+        email.classList.add('is-valid');
+        return true;
+    }
 }
 
 function validateSelectboxes() {
@@ -68,7 +82,7 @@ function validateSelectboxes() {
         gameSpecific.classList.add('is-valid');
     }
     //
-    if( gameGenres.value === " " || gameSeries.value === " " || gameSpecific.value === " " 
+    if( gameGenres.value === "" || gameSeries.value === " " || gameSpecific.value === " " 
      || gameGenres.value === null || gameSeries.value === null || gameSpecific.value === null) {
         return false;
     } else {
@@ -93,6 +107,7 @@ function validateCheckboxes(className) {
         return false;
     }
     if(counter > 0) {
+        dogs.classList.add('is-invalid');
         return true;
     } else {
         return false;
@@ -184,7 +199,20 @@ function fillSecondSelect() {
     } else {
         var options = [" | "];
     }
+
+    //
+    if(thirdParameter.value == " ") {
+        var options = [" | "];
+    }
     
+    for(let i in options) {
+        let pair = options[i].split("|");
+        let option = document.createElement("option");
+        option.value = pair[0];
+        option.innerHTML = pair[1];
+        thirdParameter.options.add(option);
+    }
+    //    
     for(let i in options) {
         let pair = options[i].split("|");
         let option = document.createElement("option");
@@ -236,6 +264,17 @@ function fillThirdSelect() {
         let secondParameter = document.getElementById('game-series');
         let thirdParameter = document.getElementById('game-specific');
 
+        if(thirdParameter.value == " ") {
+            var options = [" | "];
+        }
+        
+        for(let i in options) {
+            let pair = options[i].split("|");
+            let option = document.createElement("option");
+            option.value = pair[0];
+            option.innerHTML = pair[1];
+            thirdParameter.options.add(option);
+        }
 
     }
 }
