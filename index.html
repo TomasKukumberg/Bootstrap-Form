@@ -12,28 +12,28 @@
     <form action="mailto:feistu01@gmail.com" method="post" enctype="text/plain" class="needs-validation"  name="form" id="form" novalidate>
       <div class="form-row form-group">
         <div class="col-md-6">
-          <label for="date">Dátum narodenia:</label>
-          <input type="date" onblur="validateBirth()" class="form-control" placeholder="Zadajte dátum narodenia" id="birthday" name="birthday">
+          <label for="birthday">Dátum narodenia:</label>
+          <input type="date" onblur="validateBirth()" class="form-control" id="birthday" name="birthday">
           <small class="invalid-feedback error">Dátum narodenia a vek sa nezhodujú</small>
         </div>
         <div class="col-md-6">
-          <label for="number">Vek:</label>
+          <label for="age">Vek:</label>
           <input type="number" onchange="validateAge()" class="form-control" placeholder="Zadajte vek: " id="age" name="age">
           <small class="invalid-feedback error">Dátum narodenia a vek sa nezhodujú</small>
         </div>
       </div>  
-      <label for="dogs">Vyberte si obľúbených psov:</label>
+      <label>Vyberte si obľúbených psov:</label>
       <div class="row checkbox form-check" id="dogs">
         <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="dog1" onchange="validateCheckboxes('dogs')"> Bulteriér</label>
-        <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="dog2"onchange="validateCheckboxes('dogs')"> Retríver</label>
+        <label class="radio-inline col-md-2"><input type="checkbox" class="dogs" name="dog2" onchange="validateCheckboxes('dogs')"> Retríver</label>
         <label class="radio-inline col-md-2"><input id="other-checkbox" class="dogs" type="checkbox" name="dog3" onchange="changeTextField(); validateCheckboxes('dogs')"> Iná rasa</label>
-        <label class="radio-inline"><input class="form-control dogs" type="hidden" name="dog4" placeholder="Zadajte inú rasu" id="other-text" onchange="validateCheckboxes('dogs')"></label>
+        <label class="radio-inline"><input class="form-control dogs" type="hidden" name="dog4" id="other-text" onchange="validateCheckboxes('dogs')"></label>
         <small class="invalid-feedback error">Vyberte si aspoň jedného psa</small>
       </div>
       <div class="form-group">
         <label for="game-genres">Vyberte si obľúbený žáner hier: </label>
         <select class="selectBox form-control" name="game-genres" id="game-genres" onchange="fillSecondSelect(); validateSelectboxes()">
-          <option value=""></option>
+          <option value="">&nbsp;</option>
           <option value="fps">FPS</option>
           <option value="rpg">RPG</option>
           <option value="stealth">Stealth</option>
@@ -52,8 +52,7 @@
         <select class="selectBox form-control" name="game-specific" id="game-specific" onchange="validateSelectboxes(); ensureThird()"></select>
         <small class="invalid-feedback">Vyberte si diel</small>
       </div>
-
-      
+ 
       <div class="form-group form-row">
         <div class="col-md-3">
           <label>Vyberte si pohlavie:</label>
@@ -69,7 +68,7 @@
       </div>
       <div class="form-row form-group">
         <div class="col-md-5">
-          <label for="custom-q-text" id="specific-question" class="radio-inline">Vaše obľúbený herečka?</label><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoved" id="custom-q-text" onblur="validateCustomMessage()">
+          <label for="custom-q-text" id="specific-question" class="radio-inline">Vaša obľúbená herečka?</label><input class="form-control" type="text" name="custom-q-text" placeholder="Zadajte odpoveď" id="custom-q-text" onblur="validateCustomMessage()">
           <small class="invalid-feedback">Vyplňte pole</small>
         </div>
         <div class="col-md-5">
@@ -96,11 +95,3 @@
     <script src="scripts.js"></script>
   </body>
 </html>
-
-<!--
-  TODO: ADD ERROR MESSAGES FOR:
-    DOGS
-    Vase oblubene auto?
-    email
-    najlepsi moment v zivote
--->

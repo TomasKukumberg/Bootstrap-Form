@@ -1,8 +1,14 @@
 const form = document.getElementById('form');
 
 form.addEventListener('submit', (e) => {
-    let validForm = validateAge() && validateBirth() && validateCheckboxes('dogs') && validateSelectboxes() && validateEmail()
-    && validateTextArea() &&  validateCustomMessage();
+    let validAge = validateAge();
+    let validBirth = validateBirth();
+    let validCheckboxes = validateCheckboxes('dogs');
+    let validSelectboxes = validateSelectboxes();
+    let validEmail = validateEmail();
+    let validTextarea = validateTextArea();
+    let validCustomMessage = validateCustomMessage();
+    let validForm = validAge && validBirth && validCheckboxes && validSelectboxes && validEmail && validTextarea && validCustomMessage;
     if(validForm == false) {
         e.preventDefault();
     }
@@ -57,7 +63,6 @@ function validateEmail() {
         return true;
     }
 }
-
 function validateSelectboxes() {
     let gameGenres = document.getElementById('game-genres');
     let gameSeries = document.getElementById('game-series');
@@ -69,21 +74,23 @@ function validateSelectboxes() {
         gameGenres.classList.remove('is-invalid');
         gameGenres.classList.add('is-valid');
     }
-    if(gameSeries.value == " ") {
+    if(gameSeries.value == " " || gameSeries.value == "") {
         gameSeries.classList.add('is-invalid');
     } else {
         gameSeries.classList.remove('is-invalid');
         gameSeries.classList.add('is-valid');
     }
-    if(gameSpecific.value == " ") {
+    if(gameSpecific.value == " " || gameSpecific.value == "") {
         gameSpecific.classList.add('is-invalid');
     } else {
         gameSpecific.classList.remove('is-invalid');
         gameSpecific.classList.add('is-valid');
     }
     //
-    if( gameGenres.value === "" || gameSeries.value === " " || gameSpecific.value === " " 
-     || gameGenres.value === null || gameSeries.value === null || gameSpecific.value === null) {
+    console.log('test');
+    console.log( gameGenres.value + " " + gameSeries.value + " " + gameSpecific.value );
+    if( gameGenres.value == "" || gameSeries.value == " " || gameSpecific.value == " " 
+     || gameGenres.value == " " || gameSeries.value == "" || gameSpecific.value == "") {
         return false;
     } else {
         return true;
@@ -92,7 +99,6 @@ function validateSelectboxes() {
 function validateCheckboxes(className) {
     let dogs = document.getElementsByClassName(className);
     counter = 0;
-    console.log(dogs[2].checked + " " + document.getElementById('other-text').value);
     thirdCheckedEmpty = (dogs[2].checked && document.getElementById('other-text').value === "");
     for(let i = 0; i < dogs.length - 1; i++) {
         if(dogs[i].checked) {
@@ -107,13 +113,11 @@ function validateCheckboxes(className) {
         return false;
     }
     if(counter > 0) {
-        dogs.classList.add('is-invalid');
         return true;
     } else {
         return false;
     }
 }
-
 function validateBirth() {
     let form = document.getElementById("form");
     let age = form["age"];
@@ -258,8 +262,8 @@ function fillThirdSelect() {
         option.innerHTML = pair[1];
         thirdParameter.options.add(option);
     }
-
-    function testingshit() {
+}
+    function ensureThird() {
         let firstParameter = document.getElementById('game-genres');
         let secondParameter = document.getElementById('game-series');
         let thirdParameter = document.getElementById('game-specific');
@@ -277,4 +281,3 @@ function fillThirdSelect() {
         }
 
     }
-}

@@ -7,5 +7,10 @@ form {
     visibility: hidden;
 }
 .form-bg {
-    border: 1px solid #ced4da
+    border: 1px solid #ced4da;
+}
+body {
+    background-image:url("images/simple.jpg");
+    opacity: 0.75;
+    color: white;
 }
